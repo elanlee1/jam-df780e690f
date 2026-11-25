@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#140f0c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Jam Playlist">
+  <title>Jam Playlist</title>
+  <style>
+    :root {
+      --bg: #140f0c;
+      --card: #221a15;
+      --card-edge: #3a2e25;
+      --ink: #f6f0e8;
+      --mute: #b7a89a;
+      --amber: #f0a234;
+      --amber-ink: #1a120c;
+      --air: #8eb8ff;
+      --good: #d7ecb0;
+      --pad: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--bg); color: var(--ink); }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      min-height: 100dvh;
+      padding: calc(28px + env(safe-area-inset-top)) var(--pad) calc(40px + env(safe-area-inset-bottom));
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .wrap { max-width: 42rem; margin: 0 auto; }
+
+    header { margin-bottom: 1.5rem; }
+    .kicker {
+      margin: 0 0 0.35rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 8vw, 3rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+    .lede {
+      margin: 0.7rem 0 0;
+      color: var(--mute);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .tip {
+      margin: 1.15rem 0 0;
+      padding: 0.9rem 1rem;
+      background: #2a211b;
+      border: 1px solid var(--card-edge);
+      border-radius: 14px;
+      color: var(--mute);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .tip strong { color: var(--ink); font-weight: 600; }
+
+    .song {
+      background: var(--card);
+      border: 1px solid var(--card-edge);
+      border-radius: 20px;
+      padding: 1.15rem 1.1rem 1.2rem;
+      margin: 0 0 1rem;
+    }
+
+    .song-top { display: flex; gap: 0.85rem; align-items: flex-start; }
+    .num {
+      flex: none;
+      width: 2rem;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--amber);
+      line-height: 1.15;
+    }
+    .meta { flex: 1; min-width: 0; }
+    .title {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+    .artist {
+      margin: 0.28rem 0 0;
+      color: var(--mute);
+      font-size: 0.92rem;
+    }
+    .facts {
+      margin: 0.45rem 0 0;
+      color: var(--good);
+      font-size: 0.8rem;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    button {
+      font: inherit;
+      border: 0;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .play {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 3.6rem;
+      padding: 0.7rem 1rem;
+      border-radius: 14px;
+      background: var(--amber);
+      color: var(--amber-ink);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+    .play:active { transform: scale(0.985); }
+    .play.is-playing { background: #f4efe8; }
+
+    .airplay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.6rem;
+      min-height: 3.6rem;
+      border-radius: 14px;
+      background: #31456a;
+      color: var(--air);
+    }
+    .airplay:active { transform: scale(0.985); }
+    .airplay svg { width: 1.55rem; height: 1.55rem; display: block; }
+
+    .transport {
+      margin-top: 0.85rem;
+    }
+    .times {
+      display: flex;
+      justify-content: space-between;
+      color: var(--mute);
+      font-size: 0.75rem;
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 0.3rem;
+    }
+    input[type="range"] {
+      width: 100%;
+      height: 2rem;
+      margin: 0;
+      accent-color: var(--amber);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.35rem;
+      margin: 0.95rem 0 0;
+    }
+    .links a {
+      color: var(--ink);
+      text-decoration: none;
+      background: #2f261f;
+      border: 1px solid var(--card-edge);
+      border-radius: 999px;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .links a:active { background: #3a2f27; }
+
+    .note {
+      margin: 0.75rem 0 0;
+      color: var(--mute);
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(1.2rem + env(safe-area-inset-bottom));
+      transform: translateX(-50%) translateY(120%);
+      background: #f6f0e8;
+      color: #1a120c;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      max-width: calc(100% - 2rem);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .25s ease, opacity .25s ease;
+      z-index: 10;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    audio { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">Workshop setlist</p>
+      <h1>Jam Playlist</h1>
+      <p class="lede">Three play-alongs for the session with Stephen. Drums and bass are out. Each track starts with four stick clicks.</p>
+      <p class="tip"><strong>AirPlay to the Workshop:</strong> tap Play along, then pick the Workshop speaker in the AirPlay list. The page can’t choose that speaker for you. Volume is the phone’s buttons.</p>
+    </header>
+
+    <article class="song" data-song="fire">
+      <div class="song-top">
+        <div class="num">1</div>
+        <div class="meta">
+          <h2 class="title">Fire</h2>
+          <p class="artist">Bruce Springsteen · Winterland 1978</p>
+          <p class="facts">~113 BPM · 2:49</p>
+        </div>
+      </div>
+      <div class="controls">
+        <button type="button" class="play" data-action="play">
+          <span class="play-icon" aria-hidden="true">▶</span>
+          <span class="play-label">Play along</span>
+        </button>
+        <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="transport">
+        <div class="times"><span class="elapsed">0:00</span><span class="remaining">-2:50</span></div>
+        O0" step="0.1" value="0" aria-label="Seek Fire">
+      </div>
+      <div class="links">
+        <a href="https://www.youtube.com/watch?v=bKGARHZ9iIg">Winterland performance</a>
+        <a href="https://guitarprotabs.org/tabs/springsteenbruce/fire-2-17647">Drum tab (Batterie)</a>
+      </div>
+      <p class="note">The first 15 seconds or so after the count-off are thin — that intro is mostly bass.</p>
+      <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/fire.mp3"></audio>
+    </article>
+
+    <article class="song" data-song="come-together">
+      <div class="song-top">
+        <div class="num">2</div>
+        <div class="meta">
+          <h2 class="title">Come Together</h2>
+          <p class="artist">The Beatles</p>
+          <p class="facts">~83 BPM · 4:22</p>
+        </div>
+      </div>
+      <div class="controls">
+        <button type="button" class="play" data-action="play">
+          <span class="play-icon" aria-hidden="true">▶</span>
+          <span class="play-label">Play along</span>
+        </button>
+        <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="transport">
+        <div class="times"><span class="elapsed">0:00</span><span class="remaining">-4:22</span></div>
+        V2" step="0.1" value="0" aria-label="Seek Come Together">
+      </div>
+      <div class="links">
+        <a href="https://www.youtube.com/watch?v=tSPZcPHsl_U">Drumeo drum lesson</a>
+        <a href="https://www.youtube.com/watch?v=oolpPmuK2I8">Original track</a>
+      </div>
+      <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/come-together.mp3"></audio>
+    </article>
+
+    <article class="song" data-song="down-on-the-corner">
+      <div class="song-top">
+        <div class="num">3</div>
+        <div class="meta">
+          <h2 class="title">Down on the Corner</h2>
+          <p class="artist">Creedence Clearwater Revival</p>
+          <p class="facts">~108 BPM · 2:43</p>
+        </div>
+      </div>
+      <div class="controls">
+        <button type="button" class="play" data-action="play">
+          <span class="play-icon" aria-hidden="true">▶</span>
+          <span class="play-label">Play along</span>
+        </button>
+        <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="transport">
+        <div class="times"><span class="elapsed">0:00</span><span class="remaining">-2:43</span></div>
+        N3" step="0.1" value="0" aria-label="Seek Down on the Corner">
+      </div>
+      <div class="links">
+        <a href="https://www.youtube.com/watch?v=byNurJPlH4A">Drum lesson</a>
+        <a href="https://www.youtube.com/watch?v=WLdEZHpQ50c">Original track</a>
+        <a href="https://www.ttabs.com/tabs.php?id=253912">Drum tab</a>
+      </div>
+      <p class="note">The quiet cowbell intro is skipped, so the count-off leads straight into the guitar riff.</p>
+      <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/down-on-the-corner.mp3"></audio>
+    </article>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      const toastEl = document.querySelector(".toast");
+      let toastTimer;
+
+      function toast(msg) {
+        toastEl.textContent = msg;
+        toastEl.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toastEl.classList.remove("show"), 4200);
+      }
+
+      function fmt(t) {
+        if (!isFinite(t) || t < 0) t = 0;
+        const s = Math.floor(t);
+        return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+      }
+
+      function showPicker(audio) {
+        if (typeof audio.webkitShowPlaybackTargetPicker === "function") {
+          try { audio.webkitShowPlaybackTargetPicker(); }
+          catch (err) { toast("Couldn’t open the AirPlay picker. Try again from Safari."); }
+          return true;
+        }
+        toast("The AirPlay picker only appears in Safari on iPhone or iPad. Open this page there, then tap again.");
+        return false;
+      }
+
+      function setPlaying(card, playing) {
+        const btn = card.querySelector(".play");
+        const icon = card.querySelector(".play-icon");
+        const label = card.querySelector(".play-label");
+        btn.classList.toggle("is-playing", playing);
+        icon.textContent = playing ? "⏸" : "▶";
+        label.textContent = playing ? "Pause" : "Play along";
+      }
+
+      const cards = [...document.querySelectorAll(".song")];
+
+      function pauseOthers(except) {
+        cards.forEach((card) => {
+          const audio = card.querySelector("audio");
+          if (audio !== except) {
+            audio.pause();
+            setPlaying(card, false);
+          }
+        });
+      }
+
+      cards.forEach((card) => {
+        const audio = card.querySelector("audio");
+        const seek = card.querySelector(".seek");
+        const elapsed = card.querySelector(".elapsed");
+        const remaining = card.querySelector(".remaining");
+        let seeking = false;
+
+        function syncTimes() {
+          const dur = audio.duration || Number(seek.max) || 0;
+          const cur = audio.currentTime || 0;
+          if (!seeking) seek.value = String(cur);
+          elapsed.textContent = fmt(cur);
+          remaining.textContent = "−" + fmt(Math.max(0, dur - cur));
+        }
+
+        audio.addEventListener("loadedmetadata", () => {
+          if (isFinite(audio.duration)) seek.max = String(audio.duration);
+          syncTimes();
+        });
+        audio.addEventListener("timeupdate", syncTimes);
+        audio.addEventListener("ended", () => { setPlaying(card, false); syncTimes(); });
+        audio.addEventListener("pause", () => {
+          if (!audio.ended) setPlaying(card, false);
+        });
+        audio.addEventListener("play", () => setPlaying(card, true));
+
+        seek.addEventListener("input", () => {
+          seeking = true;
+          audio.currentTime = Number(seek.value);
+          syncTimes();
+        });
+        seek.addEventListener("change", () => { seeking = false; });
+
+        card.querySelector('[data-action="play"]').addEventListener("click", () => {
+          if (!audio.paused && !audio.ended) {
+            audio.pause();
+            return;
+          }
+          pauseOthers(audio);
+          const playPromise = audio.play();
+          showPicker(audio);
+          if (playPromise && playPromise.catch) {
+            playPromise.catch(() => toast("Safari blocked playback. Tap Play along once more."));
+          }
+        });
+
+        card.querySelector('[data-action="airplay"]').addEventListener("click", () => {
+          if (audio.paused) {
+            pauseOthers(audio);
+            const playPromise = audio.play();
+            if (playPromise && playPromise.catch) {
+              playPromise.catch(() => {});
+            }
+          }
+          showPicker(audio);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
