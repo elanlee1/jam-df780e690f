@@ -267,7 +267,7 @@
     <header>
       <p class="kicker">Workshop setlist</p>
       <h1>Jam Playlist</h1>
-      <p class="lede">Five songs for the session with Stephen. Each has the original recording, a band play-along (drums and bass out), and a solo practice track (drums out, bass in). The practice tracks start with three seconds of silence, then a six-click count-in: 1, 2, then 1 2 3 4. Tap Back 10 to jump back and try a passage again.</p>
+      <p class="lede">Five songs for the session with Stephen. Each has the original recording, a band play-along (drums and bass out), a drum practice track (drums out, bass in), and a bass practice track (bass out, drums in) for Stephen. The practice tracks start with three seconds of silence, then a six-click count-in: 1, 2, then 1 2 3 4. Tap Back 10 to jump back and try a passage again.</p>
       <p class="tip"><strong>AirPlay to the Workshop:</strong> tap Play, then pick the Workshop speaker in the AirPlay list. The page can’t choose that speaker for you. Volume is the phone’s buttons.</p>
     </header>
 
@@ -327,9 +327,9 @@
         <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/fire.mp3"></audio>
       </div>
       <div class="player" data-player="solo">
-        <h3 class="player-title">Solo practice (no drums)</h3>
+        <h3 class="player-title">Drum practice (no drums)</h3>
         <div class="controls">
-          <button type="button" class="play" data-action="play" aria-label="Play Solo practice (no drums)">
+          <button type="button" class="play" data-action="play" aria-label="Play Drum practice (no drums)">
             <span class="play-icon" aria-hidden="true">▶</span>
             <span class="play-label" data-idle-label="Play along">Play along</span>
           </button>
@@ -337,7 +337,7 @@
             <span class="back10-icon" aria-hidden="true">⟲</span>
             <span class="back10-num">10</span>
           </button>
-          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Solo practice (no drums)">
+          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Drum practice (no drums)">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
           </svg>
@@ -345,14 +345,37 @@
         </div>
         <div class="transport">
           <div class="times"><span class="elapsed">0:00</span><span class="remaining">-2:55</span></div>
-          <input type="range" class="seek" min="0" max="175" step="0.1" value="0" aria-label="Seek Fire, Solo practice (no drums)">
+          <input type="range" class="seek" min="0" max="175" step="0.1" value="0" aria-label="Seek Fire, Drum practice (no drums)">
         </div>
         <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/fire-no-drums.mp3"></audio>
+      </div>
+      <div class="player" data-player="bass">
+        <h3 class="player-title">Bass practice (no bass)</h3>
+        <div class="controls">
+          <button type="button" class="play" data-action="play" aria-label="Play Bass practice (no bass)">
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span class="play-label" data-idle-label="Play along">Play along</span>
+          </button>
+          <button type="button" class="back10" data-action="back10" aria-label="Back 10 seconds">
+            <span class="back10-icon" aria-hidden="true">⟲</span>
+            <span class="back10-num">10</span>
+          </button>
+          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Bass practice (no bass)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+          </svg>
+          </button>
+        </div>
+        <div class="transport">
+          <div class="times"><span class="elapsed">0:00</span><span class="remaining">-2:55</span></div>
+          <input type="range" class="seek" min="0" max="175" step="0.1" value="0" aria-label="Seek Fire, Bass practice (no bass)">
+        </div>
+        <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/fire-no-bass.mp3"></audio>
       </div>
       <div class="links">
         <a href="https://guitarprotabs.org/tabs/springsteenbruce/fire-2-17647">Drum tab (Batterie)</a>
       </div>
-      <p class="note">On the band play-along, the first 15 seconds or so after the count-off are thin — that intro is mostly bass. The solo practice track keeps the bass in.</p>
+      <p class="note">On the band play-along, the first 15 seconds or so after the count-off are thin — that intro is mostly bass. The drum practice track keeps the bass in. The bass practice track keeps the drums, but that opening is still thin because it’s mostly bass.</p>
     </article>
 
     <article class="song" data-song="come-together">
@@ -411,9 +434,9 @@
         <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/come-together.mp3"></audio>
       </div>
       <div class="player" data-player="solo">
-        <h3 class="player-title">Solo practice (no drums)</h3>
+        <h3 class="player-title">Drum practice (no drums)</h3>
         <div class="controls">
-          <button type="button" class="play" data-action="play" aria-label="Play Solo practice (no drums)">
+          <button type="button" class="play" data-action="play" aria-label="Play Drum practice (no drums)">
             <span class="play-icon" aria-hidden="true">▶</span>
             <span class="play-label" data-idle-label="Play along">Play along</span>
           </button>
@@ -421,7 +444,7 @@
             <span class="back10-icon" aria-hidden="true">⟲</span>
             <span class="back10-num">10</span>
           </button>
-          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Solo practice (no drums)">
+          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Drum practice (no drums)">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
           </svg>
@@ -429,9 +452,32 @@
         </div>
         <div class="transport">
           <div class="times"><span class="elapsed">0:00</span><span class="remaining">-4:28</span></div>
-          <input type="range" class="seek" min="0" max="268" step="0.1" value="0" aria-label="Seek Come Together, Solo practice (no drums)">
+          <input type="range" class="seek" min="0" max="268" step="0.1" value="0" aria-label="Seek Come Together, Drum practice (no drums)">
         </div>
         <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/come-together-no-drums.mp3"></audio>
+      </div>
+      <div class="player" data-player="bass">
+        <h3 class="player-title">Bass practice (no bass)</h3>
+        <div class="controls">
+          <button type="button" class="play" data-action="play" aria-label="Play Bass practice (no bass)">
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span class="play-label" data-idle-label="Play along">Play along</span>
+          </button>
+          <button type="button" class="back10" data-action="back10" aria-label="Back 10 seconds">
+            <span class="back10-icon" aria-hidden="true">⟲</span>
+            <span class="back10-num">10</span>
+          </button>
+          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Bass practice (no bass)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+          </svg>
+          </button>
+        </div>
+        <div class="transport">
+          <div class="times"><span class="elapsed">0:00</span><span class="remaining">-4:28</span></div>
+          <input type="range" class="seek" min="0" max="268" step="0.1" value="0" aria-label="Seek Come Together, Bass practice (no bass)">
+        </div>
+        <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/come-together-no-bass.mp3"></audio>
       </div>
       <div class="links">
         <a href="https://www.youtube.com/watch?v=tSPZcPHsl_U">Drumeo drum lesson</a>
@@ -495,9 +541,9 @@
         <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/down-on-the-corner.mp3"></audio>
       </div>
       <div class="player" data-player="solo">
-        <h3 class="player-title">Solo practice (no drums)</h3>
+        <h3 class="player-title">Drum practice (no drums)</h3>
         <div class="controls">
-          <button type="button" class="play" data-action="play" aria-label="Play Solo practice (no drums)">
+          <button type="button" class="play" data-action="play" aria-label="Play Drum practice (no drums)">
             <span class="play-icon" aria-hidden="true">▶</span>
             <span class="play-label" data-idle-label="Play along">Play along</span>
           </button>
@@ -505,7 +551,7 @@
             <span class="back10-icon" aria-hidden="true">⟲</span>
             <span class="back10-num">10</span>
           </button>
-          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Solo practice (no drums)">
+          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Drum practice (no drums)">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
           </svg>
@@ -513,9 +559,32 @@
         </div>
         <div class="transport">
           <div class="times"><span class="elapsed">0:00</span><span class="remaining">-2:48</span></div>
-          <input type="range" class="seek" min="0" max="168" step="0.1" value="0" aria-label="Seek Down on the Corner, Solo practice (no drums)">
+          <input type="range" class="seek" min="0" max="168" step="0.1" value="0" aria-label="Seek Down on the Corner, Drum practice (no drums)">
         </div>
         <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/down-on-the-corner-no-drums.mp3"></audio>
+      </div>
+      <div class="player" data-player="bass">
+        <h3 class="player-title">Bass practice (no bass)</h3>
+        <div class="controls">
+          <button type="button" class="play" data-action="play" aria-label="Play Bass practice (no bass)">
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span class="play-label" data-idle-label="Play along">Play along</span>
+          </button>
+          <button type="button" class="back10" data-action="back10" aria-label="Back 10 seconds">
+            <span class="back10-icon" aria-hidden="true">⟲</span>
+            <span class="back10-num">10</span>
+          </button>
+          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Bass practice (no bass)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+          </svg>
+          </button>
+        </div>
+        <div class="transport">
+          <div class="times"><span class="elapsed">0:00</span><span class="remaining">-2:48</span></div>
+          <input type="range" class="seek" min="0" max="168" step="0.1" value="0" aria-label="Seek Down on the Corner, Bass practice (no bass)">
+        </div>
+        <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/down-on-the-corner-no-bass.mp3"></audio>
       </div>
       <div class="links">
         <a href="https://www.youtube.com/watch?v=byNurJPlH4A">Drum lesson</a>
@@ -580,9 +649,9 @@
         <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/seven-nation-army.mp3"></audio>
       </div>
       <div class="player" data-player="solo">
-        <h3 class="player-title">Solo practice (no drums)</h3>
+        <h3 class="player-title">Drum practice (no drums)</h3>
         <div class="controls">
-          <button type="button" class="play" data-action="play" aria-label="Play Solo practice (no drums)">
+          <button type="button" class="play" data-action="play" aria-label="Play Drum practice (no drums)">
             <span class="play-icon" aria-hidden="true">▶</span>
             <span class="play-label" data-idle-label="Play along">Play along</span>
           </button>
@@ -590,7 +659,7 @@
             <span class="back10-icon" aria-hidden="true">⟲</span>
             <span class="back10-num">10</span>
           </button>
-          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Solo practice (no drums)">
+          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Drum practice (no drums)">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1 2-2V5a2 2 0 0 1 2-2Z"/>
           </svg>
@@ -598,15 +667,38 @@
         </div>
         <div class="transport">
           <div class="times"><span class="elapsed">0:00</span><span class="remaining">-4:02</span></div>
-          <input type="range" class="seek" min="0" max="242" step="0.1" value="0" aria-label="Seek Seven Nation Army, Solo practice (no drums)">
+          <input type="range" class="seek" min="0" max="242" step="0.1" value="0" aria-label="Seek Seven Nation Army, Drum practice (no drums)">
         </div>
         <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/seven-nation-army-no-drums.mp3"></audio>
+      </div>
+      <div class="player" data-player="bass">
+        <h3 class="player-title">Bass practice (no bass)</h3>
+        <div class="controls">
+          <button type="button" class="play" data-action="play" aria-label="Play Bass practice (no bass)">
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span class="play-label" data-idle-label="Play along">Play along</span>
+          </button>
+          <button type="button" class="back10" data-action="back10" aria-label="Back 10 seconds">
+            <span class="back10-icon" aria-hidden="true">⟲</span>
+            <span class="back10-num">10</span>
+          </button>
+          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Bass practice (no bass)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+          </svg>
+          </button>
+        </div>
+        <div class="transport">
+          <div class="times"><span class="elapsed">0:00</span><span class="remaining">-4:02</span></div>
+          <input type="range" class="seek" min="0" max="242" step="0.1" value="0" aria-label="Seek Seven Nation Army, Bass practice (no bass)">
+        </div>
+        <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/seven-nation-army-no-bass.mp3"></audio>
       </div>
       <div class="links">
         <a href="https://www.youtube.com/watch?v=VgNaDah9S5s">Drum lesson</a>
         <a href="https://www.youtube.com/watch?v=cqBqwyYKYlw">Drum tutorial #2</a>
       </div>
-      <p class="note">The practice tracks start on the opening guitar riff. Drums come in on the third time through the riff, four bars later. The verse is a four-on-the-floor kick and floor tom with the hi-hat on 2 and 4; the chorus opens up to snare on 2 and 4 and crashes on every beat.</p>
+      <p class="note">The practice tracks start on the opening guitar riff. The octave-pedal riff landed in the bass stem, so the band and bass practice tracks drop it — Stephen can play it himself. The drum practice track keeps the riff. Drums come in on the third time through the riff, four bars later. The verse is a four-on-the-floor kick and floor tom with the hi-hat on 2 and 4; the chorus opens up to snare on 2 and 4 and crashes on every beat.</p>
     </article>
 
     <article class="song" data-song="mississippi-queen">
@@ -665,9 +757,9 @@
         <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/mississippi-queen.mp3"></audio>
       </div>
       <div class="player" data-player="solo">
-        <h3 class="player-title">Solo practice (no drums)</h3>
+        <h3 class="player-title">Drum practice (no drums)</h3>
         <div class="controls">
-          <button type="button" class="play" data-action="play" aria-label="Play Solo practice (no drums)">
+          <button type="button" class="play" data-action="play" aria-label="Play Drum practice (no drums)">
             <span class="play-icon" aria-hidden="true">▶</span>
             <span class="play-label" data-idle-label="Play along">Play along</span>
           </button>
@@ -675,7 +767,7 @@
             <span class="back10-icon" aria-hidden="true">⟲</span>
             <span class="back10-num">10</span>
           </button>
-          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Solo practice (no drums)">
+          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Drum practice (no drums)">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1 2-2V5a2 2 0 0 1 2-2Z"/>
           </svg>
@@ -683,15 +775,38 @@
         </div>
         <div class="transport">
           <div class="times"><span class="elapsed">0:00</span><span class="remaining">-2:37</span></div>
-          <input type="range" class="seek" min="0" max="157" step="0.1" value="0" aria-label="Seek Mississippi Queen, Solo practice (no drums)">
+          <input type="range" class="seek" min="0" max="157" step="0.1" value="0" aria-label="Seek Mississippi Queen, Drum practice (no drums)">
         </div>
         <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/mississippi-queen-no-drums.mp3"></audio>
+      </div>
+      <div class="player" data-player="bass">
+        <h3 class="player-title">Bass practice (no bass)</h3>
+        <div class="controls">
+          <button type="button" class="play" data-action="play" aria-label="Play Bass practice (no bass)">
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span class="play-label" data-idle-label="Play along">Play along</span>
+          </button>
+          <button type="button" class="back10" data-action="back10" aria-label="Back 10 seconds">
+            <span class="back10-icon" aria-hidden="true">⟲</span>
+            <span class="back10-num">10</span>
+          </button>
+          <button type="button" class="airplay" data-action="airplay" aria-label="Choose AirPlay speaker for Bass practice (no bass)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 16.5 6 22h12l-6-5.5ZM3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3v-2h3V5H3v11h3v2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+          </svg>
+          </button>
+        </div>
+        <div class="transport">
+          <div class="times"><span class="elapsed">0:00</span><span class="remaining">-2:37</span></div>
+          <input type="range" class="seek" min="0" max="157" step="0.1" value="0" aria-label="Seek Mississippi Queen, Bass practice (no bass)">
+        </div>
+        <audio preload="metadata" playsinline x-webkit-airplay="allow" src="audio/mississippi-queen-no-bass.mp3"></audio>
       </div>
       <div class="links">
         <a href="https://www.youtube.com/watch?v=xfc_Q00XM7k">Drum lesson</a>
         <a href="https://www.youtube.com/watch?v=FT5rOd6yndY">Drum play-along</a>
       </div>
-      <p class="note">The practice tracks start on the first cowbell hit, which is removed with the drums, so you play Corky Laing’s cowbell intro yourself right after the 4. The guitar answers in bar 2, and the kit comes in with a snare-flam fill around bar 6. The groove is a hard-rock shuffle with the cowbell on the quarters.</p>
+      <p class="note">The practice tracks start on the first cowbell hit. On the band and drum practice tracks the cowbell is removed with the drums, so you play Corky Laing’s intro yourself right after the 4. The bass practice track keeps the drums, so the cowbell is audible on that first beat. The guitar answers in bar 2, and the kit comes in with a snare-flam fill around bar 6. The groove is a hard-rock shuffle with the cowbell on the quarters.</p>
     </article>
   </div>
 
